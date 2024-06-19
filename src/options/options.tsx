@@ -3,7 +3,33 @@ import { ProductDetail } from "../types/options";
 
 const Options = () => {
   const [siteDetails, setSiteDetials] = useState<ProductDetail[]>([]);
+  const [siteName,setSiteName] = useState<string>("");
+  const [productNameClass,setproductNameClass] = useState<string>("");
+  const [productImageClass,setproductImageClass] = useState<string>("");
+  const [productNameTag,setproductNameTag] = useState<string>("");
+  const [productPriceClass,setproductPriceClass] = useState<string>("");
+  const [productPriceTag,setproductPriceTag] = useState<string>("");
+  const [productColorClass,setproductColorClass] = useState<string>("");
+  const [productColorTag,setproductColorTag] = useState<string>("");
+  const [productSizeClass,setproductSizeClass] = useState<string>("");
+  const [productSizeTag,setproductSizeTag] = useState<string>("");
 
+  const handleSubmit = ()=>{
+    const productDetailObject:ProductDetail = {
+      siteName:siteName,
+      producImageParentClass:productImageClass,
+      productNameParentClass:productNameClass,
+      productNameTag:productNameTag,
+      productPriceParentClass:productPriceClass,
+      productPriceTag:"",
+      colorParentClass:"",
+      colorTag:"",
+      sizeParentClass:"",
+      sizeTag:""
+    }
+  }
+
+   
   return (
     <div className="w-screen overflow-x-auto">
       <table className="w-full text-sm text-left rtl:text-right">
@@ -19,7 +45,7 @@ const Options = () => {
               Product Name Tag
             </th>
             <th scope="col" className="px-6 py-3">
-              Product Name Tag
+              Product Image Class
             </th>
             <th scope="col" className="px-6 py-3">
               Product Price Class
@@ -74,8 +100,11 @@ const Options = () => {
               Site Name
             </label>
             <input
+            
               type="text"
               id="site_name"
+              value={siteName}
+              onChange={e=>setSiteName(e.target.value)}
               className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
             />
@@ -90,6 +119,24 @@ const Options = () => {
             <input
               type="text"
               id="product_name_class"
+              value={productNameClass}
+              onChange={e=>setproductNameClass(e.target.value)}
+              className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              required
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="product_name_tag"
+              className="block mb-2 text-sm font-medium text-gray-900"
+            >
+              Product Image Class
+            </label>
+            <input
+              type="text"
+              id="product_image_class"
+              value={productImageClass}
+              onChange={(e)=>setproductImageClass(e.target.value)}
               className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
             />
@@ -104,6 +151,8 @@ const Options = () => {
             <input
               type="text"
               id="product_name_tag"
+              value={productNameTag}
+              onChange={(e)=>setproductNameTag(e.target.value)}
               className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
             />
@@ -118,8 +167,10 @@ const Options = () => {
             <input
               type="tel"
               id="product_price_class"
+              value={productPriceClass}
+              onChange={(e)=>setproductPriceClass(e.target.value)}
               className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+              
               required
             />
           </div>
@@ -133,8 +184,10 @@ const Options = () => {
             <input
               type="tel"
               id="product_price_tag"
+              value={productPriceTag}
+              onChange={(e)=>setproductPriceTag(e.target.value)}
               className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+             
               required
             />
           </div>
@@ -148,8 +201,10 @@ const Options = () => {
             <input
               type="tel"
               id="product_color_class"
+              value={productColorClass}
+              onChange={(e)=>setproductColorClass(e.target.value)}
               className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+     
               required
             />
           </div>
@@ -162,6 +217,8 @@ const Options = () => {
             </label>
             <input
               id="product_color_tag"
+              value={productColorTag}
+              onChange={(e)=>setproductColorTag(e.target.value)}
               className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
             />
@@ -169,6 +226,7 @@ const Options = () => {
           <div>
             <label
               htmlFor="product_size_class"
+              
               className="block mb-2 text-sm font-medium text-gray-900"
             >
               Product Size class
@@ -176,8 +234,10 @@ const Options = () => {
             <input
               type="tel"
               id="product_size_class"
+              value={productSizeClass}
+              onChange={(e)=>setproductSizeClass(e.target.value)}
               className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+        
               required
             />
           </div>
@@ -190,6 +250,8 @@ const Options = () => {
             </label>
             <input
               id="product_size_tag"
+              value={productSizeTag}
+              onChange={(e)=>setproductSizeTag(e.target.value)}
               className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
             />
@@ -197,6 +259,7 @@ const Options = () => {
         </div>
         <button
           type="submit"
+          onClick={handleSubmit}
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Submit

@@ -1,14 +1,14 @@
 interface ProductDetail {
-  siteName: String;
-  productNameParentClass: String;
-  productNameTag: String;
-  producImageParentClass: String;
-  productPriceParentClass: String;
-  productPriceTag:String;
-  colorParentClass?: String;
-  colorTag?:String,
-  sizeParentClass?: String;
-  sizeTag?:String
+  siteName: string;
+  productNameParentClass: string;
+  productNameTag: string;
+  producImageParentClass: string;
+  productPriceParentClass: string;
+  productPriceTag:string;
+  colorParentClass?: string;
+  colorTag?:string,
+  sizeParentClass?: string;
+  sizeTag?:string
 }
 
 export { ProductDetail };
